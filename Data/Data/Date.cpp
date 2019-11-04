@@ -180,3 +180,66 @@ bool Date::operator==(const Date& d)const
 {
 	return _year == d._year && _month == d._month && _day == d._day;
 }
+
+bool Date::operator!=(const Date& d)const
+{
+	return !(*this == d);
+}
+
+Date& Date::operator++()//日期前置++
+{
+	*this = *this + 1;
+	return *this;
+}
+	
+Date Date::operator++(int)//日期后置++
+{
+
+	*this = *this + 1;
+	return Date(*this);
+}
+
+Date& Date::operator--()
+{
+	*this = *this - 1;
+	return *this;
+}
+
+Date Date::operator--(int)
+{
+	*this = *this - 1;
+	return Date(*this);
+}
+
+bool Date::operator<(const Date& d)const
+{
+	if (_year < d._year)
+	{
+		return true;
+	}
+	else if (_year == d._year)
+	{
+		if (_month < d._month)
+			return true;
+		else if (_month == d._month)
+		{
+			if (_day < d._day)
+				return true;
+		}
+	}
+	return false;
+}
+
+bool Date::operator>(const Date& d)const//比较*this对象是否比d对象大
+{
+	return !(*this < d);
+}
+bool Date::operator<=(const Date &d)const
+{
+	return (*this < d) || (*this == d);
+}
+
+bool Date::operator>=(const Date& d)const//比较*this对象是否比d对象大于等于
+{
+	return !(*this < d);
+}

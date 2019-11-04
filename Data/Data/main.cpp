@@ -10,11 +10,18 @@ int main()
 	d.DateShow();
 	t.DateShow();
 	
-	cout << "-----------" << endl;
+	cout << "--------------------" << endl;
 	int day = d - t;
 	cout << day<<endl;
 
+	Date dt = ++t;
+	t.DateShow();
+	dt.DateShow();
+	cout << "-----------------------" << endl;
 
+	Date dr = t++;
+	t.DateShow();
+	dr.DateShow();
 	system("pause");
 	return 0;
 }
