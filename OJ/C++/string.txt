@@ -1,0 +1,39 @@
+1、区间部分翻转
+class Solution {
+public:
+    string reverseStr(string s, int k) {
+        string::iterator it = s.begin();
+        while(it!=s.end() && it+k <= s.end())
+        {
+            reverse(it,it+k);
+            it = it+2*k;
+        }
+        if(it+k>s.end())
+        {
+            reverse(it,s.end());
+        }
+        return s;
+    }
+};
+
+2、翻转字符串中的单词
+
+class Solution {
+public:
+    string reverseWords(string s) {
+        int size=s.size();
+        int begin=0,end;
+        for(int i=0;i<size+1;++i)
+        {
+            if(s[i]==' ' || s[i] == '\0')
+            {
+                for(end=i-1;begin<end;++begin,--end)
+                {
+                    swap(s[begin],s[end]);
+                }
+                begin=i+1;
+            }
+        }
+        return s;
+    }
+};
