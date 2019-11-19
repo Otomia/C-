@@ -1,0 +1,3 @@
+﻿  test.cpp
+c:\users\刘佳\desktop\c++ code\c-\test_deque\test_deque\test.cpp(40): warning C4018: “<”: 有符号/无符号不匹配
+  test_deque.vcxproj -> C:\Users\刘佳\Desktop\c++ code\C-\test_deque\Debug\test_deque.exe

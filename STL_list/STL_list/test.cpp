@@ -1,5 +1,33 @@
 #include<iostream>
+#include<list>
+#include<algorithm>
 using namespace std;
+
+
+
+int main()
+{
+	int ar[] = { 2,4,5,1,0,8,3,9 };
+	int n = sizeof(ar) / sizeof(int);
+	list<int> mylist(ar, ar + n);
+	mylist.sort();
+	for (auto e : mylist)
+	{
+		cout << e << " ";
+	}
+	cout << endl;
+
+	mylist.sort(greater<int>());
+	for (auto e : mylist)
+	{
+		cout << e << " ";
+	}
+	cout << endl;
+	system("pause");
+	return 0;
+}
+
+/*
 namespace bite
 {
 	// List的节点类
@@ -15,17 +43,17 @@ namespace bite
 		ListNode<T>* _pNext; T _val;
 	};
 	/*
-	List 的迭代器
-	迭代器有两种实现方式，具体应根据容器底层数据结构实现：
-	1. 原生态指针，比如：vector
-	2. 将原生态指针进行封装，因迭代器使用形式与指针完全相同，因此在自定义的类中必须实现以下方法：
-	1. 指针可以解引用，迭代器的类中必须重载operator*()
-	2. 指针可以通过->访问其所指空间成员，迭代器类中必须重载oprator->()
-	3. 指针可以++向后移动，迭代器类中必须重载operator++()与operator++(int)
-	至于operator--()/operator--(int)释放需要重载，根据具体的结构来抉择，双向链表可以向前
-	移动，所以需要重载，如果是forward_list就不需要重载--
-	4. 迭代器需要进行是否相等的比较，因此还需要重载operator==()与operator!=()
-	*/
+	//List 的迭代器
+	//迭代器有两种实现方式，具体应根据容器底层数据结构实现：
+	//1. 原生态指针，比如：vector
+	//2. 将原生态指针进行封装，因迭代器使用形式与指针完全相同，因此在自定义的类中必须实现以下方法：
+	//1. 指针可以解引用，迭代器的类中必须重载operator*()
+	//2. 指针可以通过->访问其所指空间成员，迭代器类中必须重载oprator->()
+	//3. 指针可以++向后移动，迭代器类中必须重载operator++()与operator++(int)
+	//至于operator--()/operator--(int)释放需要重载，根据具体的结构来抉择，双向链表可以向前
+	//移动，所以需要重载，如果是forward_list就不需要重载--
+	//4. 迭代器需要进行是否相等的比较，因此还需要重载operator==()与operator!=()
+	
 	template<class T, class Ref, class Ptr>
 	class ListIterator
 	{
@@ -102,7 +130,7 @@ namespace bite
 			CreateHead();
 			// 用l中的元素构造临时的temp,然后与当前对象交换
 			/*list<T> temp(l.cbegin(), l.cend());
-			this->swap(temp);*/
+			//this->swap(temp);
 
 			PNode cur = l._pHead->_pNext;
 			for (size_t i = 0; i < l.size(); ++i)
@@ -286,4 +314,4 @@ int main()
 	cout << "list is empty: " << list1.empty() << endl;
 	system("pause");
 	return 0;
-}
+}*/

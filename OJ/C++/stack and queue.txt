@@ -1,0 +1,177 @@
+.数组的第K个最大元素
+
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        priority_queue<int> q;
+        for(auto& e:nums)
+        {
+            q.push(e);
+        }
+        for(int i=1;i<k;++i)
+        {
+            q.pop();
+        }
+       
+        return q.top();
+
+    }
+};
+栈的压入和弹出
+
+class Solution {
+public:
+    bool IsPopOrder(vector<int> pushV,vector<int> popV) {
+        if(pushV.size() != popV.size())
+            return false;
+        stack<int> s;
+        int popIndex = 0;
+        for(int i=0;i<pushV.size();++i)
+        {
+            s.push(pushV[i]);
+            while(!s.empty() && s.top() == popV[popIndex])
+            {
+                s.pop();
+                ++popIndex;
+            }
+        }
+        return s.empty();
+    }
+};
+
+逆波兰表达式求值
+
+class Solution {
+public:
+    int evalRPN(vector<string>& tokens) {
+        stack<int> s;
+        int n=tokens.size();
+        int ans;
+        for(int i=0;i<n;++i)
+        {
+            if(tokens[i].size()>1 || (tokens[i].size()==1 && tokens[i]>="0" && tokens[i]<="9"))
+                s.push(atoi(tokens[i].c_str()));
+            
+            else
+            {
+                int left = s.top();
+                s.pop();
+                int right=s.top();
+                s.pop();
+                if(tokens[i]=="+")
+                {
+                    ans=left+right;
+                }
+                else if(tokens[i]=="-")
+                {
+                    ans=right-left;
+                }
+                
+                else if(tokens[i]=="*")
+                {
+                    ans=right*left;
+                    
+                } 
+                else if(tokens[i]=="/")
+                {
+                    ans=right/left;
+                }
+                s.push(ans);
+            }  
+        }
+        return s.top();
+        
+    }
+};
+
+二叉树前序遍历：
+class Solution {
+public:
+    vector<int> preorderTraversal(TreeNode* root) {
+        if(!root)return vector<int>();//空树，直接返回
+        stack<TreeNode*> s;
+        vector<int> ret;
+        TreeNode* p=root;//p指向当前访问结点
+        while(p || !s.empty())
+        {
+            while(p){//若当前结点非空
+                ret.push_back(p->val);//访问该结点
+                st.push(p);//记录该结点到栈，后面回退
+                p=p->left;//进入左子树访问
+            }
+            // while条件的设置，保证下面st非空
+            //若p非空，那么一定会压入新元素，此时st非空。若p为空，则st一定非空
+            //按先序的，此时父节点已经访问，通过它拿到右孩子后就可以移除
+            p=s.top();
+            s.pop();
+            p=p->right;//进入右子树访问
+        }
+        return ret;
+    }
+};
+
+中序遍历
+
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        stack<TreeNode*> s;
+        vector<int> ret;
+        
+        TreeNode *p=root;
+        while(p || s.empty())
+        {
+            while(p)
+            {
+                s.push(p);
+                p=p->left;
+            }
+            p=s.top();
+            s.pop();
+            ret.push_back(p->val);
+            p=p->right;
+        }
+        return ret;
+    }
+};
+
+后序
+
+class Solution {
+public:
+    vector<int> postorderTraversal(TreeNode* root) {
+        stack<TreeNode*> s;
+        vector<int> ret;
+        TreeNode *p=root;
+        TreeNode *pre=nullptr;
+        while(p || !s.empty())
+        {
+            while(p)
+            {
+                s.push(p);
+                p=p->left;
+            }
+            p=s.top();
+            //若右节点已经访问过或者没有右节点，则输出该节点值
+            if(!p->right || pre==p->right)
+            {
+                s.pop();
+                ret.push_back(p->val);
+                pre = p;
+                p = nullptr;
+            }
+            else
+            {
+                p=p->right;
+                pre=nullptr;
+            }
+        }
+        return ret;
+    }
+};
+
+
+
+
+
+
