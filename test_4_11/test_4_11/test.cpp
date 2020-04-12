@@ -147,20 +147,38 @@ vector<int> rightSideView(TreeNode* root) {
 	}
 	return res;
 }
+
+
+// Äê»á³é½±
+ 
 int main()
 {
-	/*int ar[] = { 1,2,3,};
-	vector<int> nums(ar,ar+3);
-	vector<vector<int>> ret = subsets(nums);
-	for (int i = 0; i < ret.size(); ++i)
+	int num;
+	while (cin >> num)
 	{
-		for (int j = 0; j < ret[i].size(); ++j)
-			cout << ret[i][j];
+		float rate = 100 - (100 / num) ;
+		
+		printf("%.2f", rate);
+		cout << "%";
 		cout << endl;
-	}*/
-	int a[] = { 2, 4, 6, 8, 10 }, *p, **k; 
-	p = a; k = &p;
-	printf(" % d", *(p++)); 
-	printf(" % d\n", **k);
+	}
 	return 0;
 }
+
+//int main()
+//{
+//	/*int ar[] = { 1,2,3,};
+//	vector<int> nums(ar,ar+3);
+//	vector<vector<int>> ret = subsets(nums);
+//	for (int i = 0; i < ret.size(); ++i)
+//	{
+//		for (int j = 0; j < ret[i].size(); ++j)
+//			cout << ret[i][j];
+//		cout << endl;
+//	}*/
+//	int a[] = { 2, 4, 6, 8, 10 }, *p, **k; 
+//	p = a; k = &p;
+//	printf(" % d", *(p++)); 
+//	printf(" % d\n", **k);
+//	return 0;
+//}

@@ -1,3 +1,4 @@
 ﻿  test.cpp
-c:\users\刘佳\desktop\c++ code\c-\test_4_11\test_4_11\test.cpp(55): warning C4018: “<”: 有符号/无符号不匹配
+c:\users\刘佳\desktop\c++ code\c-\test_4_11\test_4_11\test.cpp(56): warning C4018: “<”: 有符号/无符号不匹配
+c:\users\刘佳\desktop\c++ code\c-\test_4_11\test_4_11\test.cpp(159): warning C4244: “初始化”: 从“int”转换到“float”，可能丢失数据
   test_4_11.vcxproj -> C:\Users\刘佳\Desktop\c++ code\C-\test_4_11\Debug\test_4_11.exe
