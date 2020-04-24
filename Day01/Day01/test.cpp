@@ -352,10 +352,10 @@ public:
 	//	//res.push_back(left);
 	//	//return res;
 	//	//
-	//	int left = -1, right = -1;
-	//	vector<int> res;
 	//	for (int i = 0; i < nums.size(); ++i)
 	//	{
+	//	int left = -1, right = -1;
+	//	vector<int> res;
 	//		if (left == -1 && nums[i] == target)
 	//			left = i;
 	//		if (nums[i] == target)

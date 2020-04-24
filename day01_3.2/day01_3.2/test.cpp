@@ -5,6 +5,30 @@
 #include<algorithm>
 using namespace std;
 
+// 连续子数组最大和
+int main()
+{
+	int n;
+	while (cin >> n)
+	{
+		vector<int> vt(n);
+		for (int i = 0; i < n; ++i)
+			cin >> vt[i];
+		int max = vt[0];
+		int sum = 0;
+		for (int i = 0; i < n; ++i)
+		{
+			sum += vt[i];
+			if (sum > max) 
+				max = sum;
+			if (sum < 0)
+				sum = 0;
+		}
+		cout << max << endl;
+	}
+}
+
+
 // 淘宝网店
 //bool isSushu(int n)
 //{
